@@ -2,10 +2,12 @@
 
 ## Remaps 
 
+```
  <C-U>
  <C-D>
  <C-F>
  <C-B>
+```
 
 to allow smooth scrolling of the window.
 
