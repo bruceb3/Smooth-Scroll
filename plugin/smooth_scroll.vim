@@ -18,9 +18,6 @@ let g:scroll_factor = 20000
 function! SmoothScroll(dir)
   let i=0
   let wscroll = &scroll
-  if wscroll < 0
-    wscroll = winheight(0) / (abs(wscroll)/100)
-  endif
   while i < wscroll
     let t1=reltime()
     let i = i + 1
