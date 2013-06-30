@@ -6,6 +6,12 @@
 " Updated by Bruce Woodward 2013.
 "
 
+" This code couldn't be compatible.
+if exists("g:smooth_scroll") || &cp
+  finish
+endif
+
+let g:smooth_scroll = 1
 
 let g:scroll_factor = 20000
 
