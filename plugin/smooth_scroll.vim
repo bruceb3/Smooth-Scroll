@@ -14,7 +14,7 @@
 "
 " Written by Brad Phelan 2006
 " http://xtargets.com
-let g:scroll_factor = 50000
+let g:scroll_factor = 20000
 function! SmoothScroll(dir, windiv, factor)
    let wh=winheight(0)
    let i=0
@@ -29,6 +29,7 @@ function! SmoothScroll(dir, windiv, factor)
       redraw
       while 1
          let t2=reltime(t1,reltime())
+         sleep 10m
          if t2[1] > g:scroll_factor * a:factor
             break
          endif
@@ -36,7 +37,7 @@ function! SmoothScroll(dir, windiv, factor)
    endwhile
 endfunction
 
-map <ctrl-d> :call SmoothScroll("d",2, 2)<cr>
-map <ctrl-u> :call SmoothScroll("u",2, 2)<cr>
-map <ctrl-f> :call SmoothScroll("d",1, 1)<cr>
-map <ctrl-B> :call SmoothScroll("u",1, 1)<cr>
+nmap <c-d> :call SmoothScroll("d",2, 2)<cr>
+nmap <c-u> :call SmoothScroll("u",2, 2)<cr>
+nmap <c-f> :call SmoothScroll("d",1, 1)<cr>
+nmap <c-B> :call SmoothScroll("u",1, 1)<cr>
