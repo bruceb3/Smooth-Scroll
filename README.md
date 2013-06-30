@@ -1,6 +1,6 @@
 # Smooth Scroll
 
-Remaps <C-U> <C-D> <C-F> <C-B> to allow smooth scrolling of the window.
+Remaps Control-U Control-D Control-F Control-B to allow smooth scrolling of the window.
 
 The global variable g:scroll_factor changes the scroll speed.
 
