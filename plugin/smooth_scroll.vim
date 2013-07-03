@@ -15,10 +15,17 @@ let g:smooth_scroll = 1
 
 let g:scroll_factor = 20000
 
-function! SmoothScroll(dir)
+function! s:half_screen()
+  return &scroll
+endfunction
+
+function! s:full_screen()
+  return winheight(0)
+endfunction
+
+function! SmoothScroll(dir, nlines)
   let i=0
-  let wscroll = &scroll
-  while i < wscroll
+  while i < a:nlines
     let t1=reltime()
     let i = i + 1
     if a:dir == "d"
@@ -37,7 +44,7 @@ function! SmoothScroll(dir)
   endwhile
 endfunction
 
-nmap <c-d> :call SmoothScroll("d")<cr>
-nmap <c-u> :call SmoothScroll("u")<cr>
-nmap <c-f> :call SmoothScroll("d")<cr>
-nmap <c-B> :call SmoothScroll("u")<cr>
+nmap <c-d> :call SmoothScroll("d", &scroll)<cr>
+nmap <c-u> :call SmoothScroll("u", &scroll)<cr>
+nmap <c-f> :call SmoothScroll("d", winheight(0))<cr>
+nmap <c-B> :call SmoothScroll("u", winheight(0))<cr>
